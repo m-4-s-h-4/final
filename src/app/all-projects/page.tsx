@@ -1,7 +1,7 @@
 import { gql } from 'graphql-request';
-import { client } from './lib/client';
+import { client } from '../lib/client';
+import styles from '../styles/Projects.module.css';
 import Link from 'next/link';
-import styles from './styles/Home.module.css';
 
 type Project = {
   id: string;
@@ -29,23 +29,23 @@ const AllProjects = gql`
   }
 `;
 
-export default async function Home() {
+export default async function Project() {
   const { all_Projects }: AllProjectsQueryResult = await client.request(
     AllProjects
   );
 
-  const firstThreeProjects = all_Projects.slice(0, 3);
-
   return (
-    <div className={styles.grid}>
-      {firstThreeProjects.map((project: Project, projectIndex: number) => {
+    <div className={styles.projectList}>
+      {all_Projects.map((project: Project, projectIndex: number) => {
         return (
           <div key={projectIndex} className={styles.project}>
             <Link href={`/projects/${project.id}`}>
-              <div><h1>{project.title}</h1></div>
+              <div>
+                <h1>{project.title}</h1>
+                </div>
             </Link>
-            <img src={project.image.url} alt={project.title} />
-            <p>{project.description}</p>
+                <img src={project.image.url} alt={project.title} />
+                <p>{project.description}</p>
           </div>
         );
       })}
