@@ -1,5 +1,6 @@
 import { gql } from 'graphql-request';
 import { client } from './lib/client';
+import Link from 'next/link';
 import styles from './Home.module.css';
 
 type Project = {
@@ -40,7 +41,9 @@ export default async function Home() {
       {firstThreeProjects.map((project: Project, projectIndex: number) => {
         return (
           <div key={projectIndex} className={styles.project}>
-            <h1>{project.title}</h1>
+            <Link href={`/projects/${project.id}`}>
+              <div><h1>{project.title}</h1></div>
+            </Link>
             <img src={project.image.url} alt={project.title} />
             <p>{project.description}</p>
           </div>
