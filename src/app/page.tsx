@@ -32,14 +32,14 @@ export default async function Home() {
     AllProjects
   );
 
-  console.log(all_Projects);
-
   return (
     <div>
       {all_Projects.map((project: Project, projectIndex: number) => {
         return (
           <div key={projectIndex}>
-            <h1 className="text-3xl font-bold">{project.title}</h1>
+            <h1>{project.title}</h1>
+            <img src={project.image.url} alt={project.title} />
+            <p>{project.description}</p>
           </div>
         );
       })}
