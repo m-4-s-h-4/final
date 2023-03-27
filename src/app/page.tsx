@@ -1,5 +1,6 @@
 import { gql } from 'graphql-request';
 import { client } from './lib/client';
+import styles from './Home.module.css';
 
 type Project = {
   id: string;
@@ -32,11 +33,13 @@ export default async function Home() {
     AllProjects
   );
 
+  const firstThreeProjects = all_Projects.slice(0, 3);
+
   return (
-    <div>
-      {all_Projects.map((project: Project, projectIndex: number) => {
+    <div className={styles.grid}>
+      {firstThreeProjects.map((project: Project, projectIndex: number) => {
         return (
-          <div key={projectIndex}>
+          <div key={projectIndex} className={styles.project}>
             <h1>{project.title}</h1>
             <img src={project.image.url} alt={project.title} />
             <p>{project.description}</p>
