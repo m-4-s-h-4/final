@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import './styles/navbar.css';
 
 export const metadata = {
   title: 'Next.js',
@@ -12,28 +13,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-      </head>
       <body>
         <nav>
-          <ul>
+          <ul className="nav-links">
             <li>
               <Link href="/">
-                <div>Home</div>
+                <div className="nav-link">Home</div>
               </Link>
             </li>
             <li>
               <Link href="/all-projects">
-                <div>Projects</div>
+                <div className="nav-link">Projects</div>
               </Link>
             </li>
             <li>
               <Link href="/contact-me">
-                <div>Contact Me</div>
+                <div className="nav-link">Contact Me</div>
               </Link>
             </li>
           </ul>

@@ -2,11 +2,13 @@ import { gql } from 'graphql-request';
 import { client } from './lib/client';
 import Link from 'next/link';
 import styles from './styles/Home.module.css';
+import {Dots} from './Dots'
 
 type Project = {
   id: string;
   title: string;
   description: string;
+  skills: string;
   image: {
     url: string;
   };
@@ -22,6 +24,7 @@ const AllProjects = gql`
       id
       title
       description
+      skills
       image {
         url
       }
@@ -37,6 +40,9 @@ export default async function Home() {
   const firstThreeProjects = all_Projects.slice(0, 3);
 
   return (
+    <div className="title">
+    <Dots/>
+    <h1>My portfolio.</h1>
     <div className={styles.grid}>
       {firstThreeProjects.map((project: Project, projectIndex: number) => {
         return (
@@ -45,10 +51,10 @@ export default async function Home() {
               <div><h1>{project.title}</h1></div>
             </Link>
             <img src={project.image.url} alt={project.title} />
-            <p>{project.description}</p>
           </div>
         );
       })}
+    </div>
     </div>
   );
 }

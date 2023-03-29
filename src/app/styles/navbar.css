@@ -1,0 +1,28 @@
+/* Default styles for the menu */
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 25rem;
+  list-style: none;
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.nav-links li {
+  margin: 0 10px;
+}
+
+.nav-link {
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 10px;
+  color: #000000;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #666;
+  text-decoration: underline;
+}

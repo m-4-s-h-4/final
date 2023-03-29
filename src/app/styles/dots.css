@@ -1,0 +1,20 @@
+.dot.d1 {
+  top: 0;
+  left: 0;
+  background: red;
+  filter: blur(50px);
+}
+
+.dot.d2 {
+  top: 100px;
+  left: 0;
+  background: blue;
+  filter: blur(50px);
+}
+
+.dot.d3 {
+  top: 100px;
+  left: 400px;
+  background: yellow;
+  filter: blur(50px);
+}
