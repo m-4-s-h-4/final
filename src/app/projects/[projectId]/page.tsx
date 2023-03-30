@@ -8,6 +8,7 @@ type ProjectParam = {
 interface ProjectsDetails {
   title: string;
   description: string;
+  skills: string;
   image: {
     url: string;
   }
@@ -18,6 +19,7 @@ const GET_PROJECT_DETAILS = gql`
     allProjects(where: { id: $projectId }) {
       title
       description
+      skills
       image {
         url
       }
@@ -36,7 +38,8 @@ async function page({ params: { projectId } }: ProjectParam) {
       <div>
         <h1>{allProjects.title}</h1>
         <p>{allProjects.description}</p>
-        <img src={allProjects.image.url} alt={allProjects.title} style={{ height: '400px', objectFit: 'cover' }} />
+        <p>{allProjects.skills}</p>
+        <img src={allProjects.image.url} alt={allProjects.title} style={{ height: '600px', objectFit: 'cover' }} />
       </div>
     </div>
   );
