@@ -1,10 +1,10 @@
 'use client'
 
+import "sweetalert2/dist/sweetalert2.min.css";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import "sweetalert2/dist/sweetalert2.min.css";
 import { useForm, SubmitHandler } from "react-hook-form";
-import styles from "../styles/ContactForm.module.css";
+import styles from "./ContactForm.module.css";
 
 type FormValues = {
   name: string;
@@ -12,7 +12,7 @@ type FormValues = {
   description: string;
 };
 
-export default function ContactForm() {
+export function ContactForm() {
   const {
     register,
     handleSubmit,

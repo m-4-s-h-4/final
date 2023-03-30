@@ -1,5 +1,6 @@
 import { gql } from 'graphql-request';
-import { client } from '../../lib/client';
+import { client } from '../../../lib/client';
+import styles from './project.module.css';
 
 type ProjectParam = {
   params: { projectId: string };
@@ -34,12 +35,14 @@ async function page({ params: { projectId } }: ProjectParam) {
   );
 
   return (
-    <div>
-      <div>
+    <div className={styles.container}>
+      <div className={styles.textContainer}>
         <h1>{allProjects.title}</h1>
-        <p>{allProjects.description}</p>
-        <p>{allProjects.skills}</p>
-        <img src={allProjects.image.url} alt={allProjects.title} style={{ height: '600px', objectFit: 'cover' }} />
+        <p className={styles.description}>{allProjects.description}</p>
+        <p className={styles.skills}>Skills: {allProjects.skills}</p>
+      </div>
+      <div className={styles.imageContainer}>
+        <img src={allProjects.image.url} alt={allProjects.title} className={styles.image} />
       </div>
     </div>
   );

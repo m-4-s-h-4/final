@@ -1,8 +1,8 @@
 import { gql } from 'graphql-request';
-import { client } from './lib/client';
+import { client } from '../lib/client';
 import Link from 'next/link';
-import styles from './styles/Home.module.css';
-import {Dots} from './components/Dots'
+import styles from './Home.module.css';
+import { Dots } from '@/components/Dots'
 
 type Project = {
   id: string;
@@ -41,23 +41,22 @@ export default async function Home() {
 
   return (
     <main>
-    <div className={styles.title}>
-    <h1>My </h1>
-    <h1>Portfolio.</h1>
-    <div className={styles.grid}>
-      {firstThreeProjects.map((project: Project, projectIndex: number) => {
-        return (
-          <div key={projectIndex} className={styles.project}>
-            <Link href={`/projects/${project.id}`}>
-              <div><h2>{project.title}</h2></div>
-            </Link>
-            <img src={project.image.url} alt={project.title} />
-            <Dots/>
-          </div>
-        );
-      })}
-    </div>
-    </div>
+      <div className={styles.title}>
+        <h1> My Portfolio.</h1>
+        <div className={styles.grid}>
+          {firstThreeProjects.map((project: Project, projectIndex: number) => {
+            return (
+              <div key={projectIndex} className={styles.project}>
+                <Link href={`/projects/${project.id}`}>
+                  <div><h2>{project.title}</h2></div>
+                </Link>
+                <img src={project.image.url} alt={project.title} />
+                <Dots />
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </main>
   );
 }

@@ -1,6 +1,6 @@
 import { gql } from 'graphql-request';
-import { client } from '../lib/client';
-import styles from '../styles/Projects.module.css';
+import { client } from '../../lib/client';
+import styles from './Projects.module.css';
 import Link from 'next/link';
 
 type Project = {
@@ -42,10 +42,10 @@ export default async function Project() {
             <Link href={`/projects/${project.id}`}>
               <div>
                 <h1>{project.title}</h1>
-                </div>
+              </div>
             </Link>
-                <img src={project.image.url} alt={project.title} />
-                <p>{project.description}</p>
+            <img src={project.image.url} alt={project.title} />
+            <p>{project.description}</p>
           </div>
         );
       })}

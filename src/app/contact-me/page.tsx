@@ -1,13 +1,11 @@
-import Contact from "../components/Contact";
-import {Dots} from '../components/Dots'
+
+import { ContactForm } from '@/components/ContactForm';
 
 export default function ContactMe() {
   return (
     <div className="page">
       <h1>Contact me</h1>
-      <Contact />
-      <Dots/>
+      <ContactForm />
     </div>
   );
 }
-  

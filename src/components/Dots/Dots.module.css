@@ -8,28 +8,28 @@
   height: 300px;
 }
 
-.dot.d1 {
+.d1 {
   top: 600px;
   left: 0;
   background: rgb(206, 101, 255);
   filter: blur(400px);
 }
 
-.dot.d2 {
+.d2 {
   top: 100px;
   left: 0;
   background: rgb(255, 66, 183);
   filter: blur(150px);
 }
 
-.dot.d3 {
+.d3 {
   top: 100px;
   left: 800px;
   background: rgb(110, 202, 255);
   filter: blur(200px);
 }
 
-.dot.d4 {
+.d4 {
   bottom: 100px;
   right: 50px;
   background: rgb(238, 255, 110);
