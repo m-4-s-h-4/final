@@ -1,6 +1,7 @@
+import { BackBtn } from '@/components/BackBtn';
 import { gql } from 'graphql-request';
 import { client } from '../../../lib/client';
-import styles from './project.module.css';
+import styles from './Project.module.css';
 
 type ProjectParam = {
   params: { projectId: string };
@@ -35,14 +36,16 @@ async function page({ params: { projectId } }: ProjectParam) {
   );
 
   return (
-    <div className={styles.container}>
-      <div className={styles.textContainer}>
-        <h1>{allProjects.title}</h1>
-        <p className={styles.description}>{allProjects.description}</p>
-        <p className={styles.skills}>Skills: {allProjects.skills}</p>
-      </div>
-      <div className={styles.imageContainer}>
-        <img src={allProjects.image.url} alt={allProjects.title} className={styles.image} />
+    <div> <BackBtn />
+      <div className={styles.container}>
+        <div className={styles.textContainer}>
+          <h1 className={styles.title}>{allProjects.title}</h1>
+          <p className={styles.description}>{allProjects.description}</p>
+          <p className={styles.skills}>Skills: {allProjects.skills}</p>
+        </div>
+        <div className={styles.imageContainer}>
+          <img src={allProjects.image.url} alt={allProjects.title} className={styles.image} />
+        </div>
       </div>
     </div>
   );

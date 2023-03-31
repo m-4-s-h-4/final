@@ -2,17 +2,19 @@
     text-transform: uppercase;
     display: flex;
     justify-content: center;
-    gap: 25rem;
     list-style: none;
+    gap: 15rem;
     margin: 1rem;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(5.5px);
-    -webkit-backdrop-filter: blur(5.5px);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-bottom: 1px solid #ccc;
 }
+
+.menuIcon {
+    color: #333;
+    font-size: 30px;
+    margin-right: 10px;
+}
+
 
 .menuItem {
     text-transform: uppercase;
@@ -20,9 +22,51 @@
     padding: 10px;
     color: #000000;
     text-decoration: none;
+
 }
 
 .menuItem:hover {
     color: #666;
     text-decoration: underline;
+}
+
+.menuButton {
+    display: none;
+}
+
+.navLinks {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 775px) {
+    .menuButton {
+        display: block;
+    }
+
+    .navLinks {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 60%;
+        background-color: #fff;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .open {
+        opacity: 1;
+        visibility: visible;
+        z-index: 999;
+        gap: 1rem;
+    }
+
+    .menuItem {
+        margin-bottom: 10px;
+    }
 }

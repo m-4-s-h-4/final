@@ -1,40 +1,41 @@
 'use client';
+
 import { useState } from 'react';
 import Link from 'next/link';
 import styles from './Nav.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 
 export const Nav = () => {
-    const [showMenu, setShowMenu] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const toggleMenu = () => {
-        setShowMenu(!showMenu);
+    const handleMenuToggle = () => {
+        setIsMenuOpen(prevState => !prevState);
     };
 
     return (
         <nav>
-            <div className={styles.burgerMenu} onClick={toggleMenu}>
-                <div className={styles.burgerLine}></div>
-                <div className={styles.burgerLine}></div>
-                <div className={styles.burgerLine}></div>
-            </div>
-            <ul className={`${styles.navLinks} ${showMenu ? styles.showMenu : ''}`}>
+            <button className={styles.menuButton} onClick={handleMenuToggle} style={{ backgroundColor: 'transparent', border: 'none' }}>
+                {isMenuOpen ? <FontAwesomeIcon icon={faTimes} className={styles.menuIcon} /> : <FontAwesomeIcon icon={faBars} className={styles.menuIcon} />}
+            </button>
+            <ul className={`${styles.navLinks} ${isMenuOpen ? styles.open : ''}`}>
                 <li>
                     <Link href="/">
-                        <div className={styles.menuItem} onClick={toggleMenu}>
+                        <div className={styles.menuItem}>
                             Home
                         </div>
                     </Link>
                 </li>
                 <li>
                     <Link href="/all-projects">
-                        <div className={styles.menuItem} onClick={toggleMenu}>
+                        <div className={styles.menuItem}>
                             Projects
                         </div>
                     </Link>
                 </li>
                 <li>
                     <Link href="/contact-me">
-                        <div className={styles.menuItem} onClick={toggleMenu}>
+                        <div className={styles.menuItem}>
                             Contact Me
                         </div>
                     </Link>
