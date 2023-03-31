@@ -3,7 +3,7 @@ import { gql } from 'graphql-request';
 import { client } from '@/lib/client';
 import styles from './AboutMe.module.css';
 import Anim from '@/components/Anim/Anim';
-import InfoAboutMe from './InfoAboutMe';
+
 
 type Collage = {
     title: string;
