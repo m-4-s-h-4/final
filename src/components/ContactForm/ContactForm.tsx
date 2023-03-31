@@ -1,11 +1,11 @@
 'use client'
 
-import "sweetalert2/dist/sweetalert2.min.css";
-import React, { useState } from "react";
-import Swal from "sweetalert2";
-import { useForm, SubmitHandler } from "react-hook-form";
-import styles from "./ContactForm.module.css";
-import { SendBtn } from "../SendBtn/SendBtn";
+import 'sweetalert2/dist/sweetalert2.min.css';
+import React, { useState } from 'react';
+import Swal from 'sweetalert2';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import styles from './ContactForm.module.css';
+import { SendBtn } from '../SendBtn/SendBtn';
 
 type FormValues = {
   name: string;
@@ -24,13 +24,13 @@ export function ContactForm() {
   const onSubmit: SubmitHandler<FormValues> = (data) => {
     setIsSent(true);
     Swal.fire({
-      title: "Your message was sent!",
-      text: "I will reply never",
+      title: 'Your message was sent!',
+      text: 'I will reply never',
       timer: 4000,
-      icon: "success"
+      icon: 'success'
     });
 
-    console.log("Sent:", data);
+    console.log('Sent:', data);
   };
 
   return (
@@ -40,28 +40,28 @@ export function ContactForm() {
           <h2 className={styles.heading}>Contact Me.</h2>
           <input
             className={styles.input}
-            type="text"
-            placeholder="Name"
-            {...register("name", { required: true })}
+            type='text'
+            placeholder='Name'
+            {...register('name', { required: true })}
           />
           {errors.name && (
-            <div className={styles.errorMessage}>Name must be filled.</div>
+            <div className={styles.errorMessage}>Name must be filled.&apos;</div>
           )}
           <input
             className={styles.input}
-            type="text"
+            type='text'
             // check to see @ and something after
-            placeholder="Email"
-            {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
+            placeholder='Email'
+            {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
           />
           {errors.email && (
-            <div className={styles.errorMessage}>Email must include "@"</div>
+            <div className={styles.errorMessage}>Email must include '@'.&apos;</div>
           )}
           <textarea
             className={styles.input}
             rows={4}
-            placeholder="Description"
-            {...register("description")}
+            placeholder='Description'
+            {...register('description')}
           ></textarea>
           <SendBtn />
         </form>
