@@ -27,6 +27,13 @@ export const Nav = () => {
                     </Link>
                 </li>
                 <li>
+                    <Link href="/about-me">
+                        <div className={styles.menuItem}>
+                            About Me
+                        </div>
+                    </Link>
+                </li>
+                <li>
                     <Link href="/all-projects">
                         <div className={styles.menuItem}>
                             Projects

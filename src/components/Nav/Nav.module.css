@@ -39,7 +39,7 @@
     align-items: center;
 }
 
-@media (max-width: 775px) {
+@media (max-width: 1192px) {
     .menuButton {
         display: block;
     }
